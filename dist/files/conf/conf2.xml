@@ -1,0 +1,557 @@
+<config>
+
+<virtualAddressNBits>32</virtualAddressNBits>
+<pageSizeNBits>12</pageSizeNBits>
+<pageTable direct="true">
+	<accessTimeUnits>4</accessTimeUnits>
+	<offsetLengths>
+		<length>10</length>
+		<length>10</length>
+	</offsetLengths>
+	<searchMethod>topdown</searchMethod>
+</pageTable>
+
+
+<smpNodeConfig>
+	<diskATU>10</diskATU>
+	<name>nodo0</name>
+	<remoteDataCacheEntriesNBits>4</remoteDataCacheEntriesNBits>
+	<remoteDataCacheEntriesInstrNBits>4</remoteDataCacheEntriesInstrNBits>
+	<remoteDataCacheAccessTimeUnits>3</remoteDataCacheAccessTimeUnits>
+	
+	<mainMemoryConfig>
+		<numberEntriesNBits>7</numberEntriesNBits>
+		<blockSizeNBits>12</blockSizeNBits>
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<busSize>20</busSize>
+		<accessTimeUnits>4</accessTimeUnits>
+		<numberSetsNBits>0</numberSetsNBits>
+		<pageAgingConfig>
+			<pageAgingIncrease>2</pageAgingIncrease>
+			<memRefToRun>5</memRefToRun>
+		</pageAgingConfig>
+		<memAllocConfig>
+			<minPFF>3</minPFF>
+			<maxPFF>6</maxPFF>
+			<evNodesToRun>5</evNodesToRun>
+		</memAllocConfig>		
+	</mainMemoryConfig>
+	
+	<ptCacheConfig>
+		<name>TLB1</name>
+		<numberEntriesNBits>4</numberEntriesNBits>
+		<numberEntriesInstrNBits>4</numberEntriesInstrNBits>
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<numberSetsNBits>2</numberSetsNBits>
+		<victimCache>
+			<victimCacheNumberEntriesNBits>3</victimCacheNumberEntriesNBits>
+			<victimCacheAccessTimeUnits>3</victimCacheAccessTimeUnits>
+		</victimCache>	
+		<accessTimeUnits>1</accessTimeUnits>
+	</ptCacheConfig>
+	
+	<ptCacheConfig>
+		<name>TLB2</name>
+		<numberEntriesNBits>5</numberEntriesNBits>
+		<numberEntriesInstrNBits>5</numberEntriesInstrNBits>
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<numberSetsNBits>2</numberSetsNBits>
+		<victimCache>
+			<victimCacheNumberEntriesNBits>3</victimCacheNumberEntriesNBits>
+			<victimCacheAccessTimeUnits>3</victimCacheAccessTimeUnits>
+		</victimCache>	
+		<accessTimeUnits>1</accessTimeUnits>
+	</ptCacheConfig>
+	
+	
+	<memCacheConfig>
+		<name>L1</name>
+		<numberEntriesNBits>3</numberEntriesNBits>
+		<numberEntriesInstrNBits>3</numberEntriesInstrNBits>
+		<blockSizeNBits>4</blockSizeNBits>
+		<blockSizeInstrNBits>4</blockSizeInstrNBits>	
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<numberSetsNBits>2</numberSetsNBits>
+		<victimCache>
+			<victimCacheNumberEntriesNBits>3</victimCacheNumberEntriesNBits>
+			<victimCacheAccessTimeUnits>3</victimCacheAccessTimeUnits>
+		</victimCache>	
+		<accessTimeUnits>1</accessTimeUnits>
+		<busSize>1</busSize>
+	</memCacheConfig>
+	
+	<memCacheConfig>
+		<name>L2</name>
+		<numberEntriesNBits>5</numberEntriesNBits>
+		<numberEntriesInstrNBits>5</numberEntriesInstrNBits>
+		<blockSizeNBits>5</blockSizeNBits>
+		<blockSizeInstrNBits>5</blockSizeInstrNBits>	
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<numberSetsNBits>2</numberSetsNBits>
+		<victimCache>
+			<victimCacheNumberEntriesNBits>3</victimCacheNumberEntriesNBits>
+			<victimCacheAccessTimeUnits>3</victimCacheAccessTimeUnits>
+		</victimCache>	
+		<accessTimeUnits>1</accessTimeUnits>
+		<busSize>1</busSize>
+	</memCacheConfig>
+	
+	<memCacheConfig>
+		<name>L3</name>
+		<numberEntriesNBits>6</numberEntriesNBits>
+		<numberEntriesInstrNBits>6</numberEntriesInstrNBits>
+		<blockSizeNBits>6</blockSizeNBits>
+		<blockSizeInstrNBits>6</blockSizeInstrNBits>	
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<numberSetsNBits>2</numberSetsNBits>
+		<victimCache>
+			<victimCacheNumberEntriesNBits>3</victimCacheNumberEntriesNBits>
+			<victimCacheAccessTimeUnits>3</victimCacheAccessTimeUnits>
+		</victimCache>	
+		<accessTimeUnits>1</accessTimeUnits>
+		<busSize>1</busSize>
+	</memCacheConfig>
+
+	<memCacheConfig>
+		<name>L2_CPU1</name>
+		<numberEntriesNBits>6</numberEntriesNBits>
+		<numberEntriesInstrNBits>6</numberEntriesInstrNBits>
+		<blockSizeNBits>6</blockSizeNBits>
+		<blockSizeInstrNBits>6</blockSizeInstrNBits>	
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<numberSetsNBits>2</numberSetsNBits>
+		<victimCache>
+			<victimCacheNumberEntriesNBits>3</victimCacheNumberEntriesNBits>
+			<victimCacheAccessTimeUnits>3</victimCacheAccessTimeUnits>
+		</victimCache>	
+		<accessTimeUnits>1</accessTimeUnits>
+		<busSize>1</busSize>
+	</memCacheConfig>
+
+	
+	<cpuCacheConfig>
+		<cpuToPTCaches>
+			<cacheIndex>0</cacheIndex>
+			<cacheIndex>1</cacheIndex>
+		</cpuToPTCaches>
+		<cpuToMemCaches>
+			<cacheIndex>0</cacheIndex>
+			<cacheIndex>1</cacheIndex>
+			<cacheIndex>2</cacheIndex>
+		</cpuToMemCaches>
+	</cpuCacheConfig>	
+
+	<cpuCacheConfig>
+		<cpuToPTCaches>
+			<cacheIndex>0</cacheIndex>
+			<cacheIndex>1</cacheIndex>
+		</cpuToPTCaches>
+		<cpuToMemCaches>
+			<cacheIndex>0</cacheIndex>
+			<cacheIndex>3</cacheIndex>
+			<cacheIndex>2</cacheIndex>
+		</cpuToMemCaches>
+	</cpuCacheConfig>	
+
+			
+</smpNodeConfig>
+
+<smpNodeConfig>
+	<diskATU>10</diskATU>
+	<name>nodo1</name>
+	<remoteDataCacheEntriesNBits>4</remoteDataCacheEntriesNBits>
+	<remoteDataCacheEntriesInstrNBits>4</remoteDataCacheEntriesInstrNBits>
+	<remoteDataCacheAccessTimeUnits>3</remoteDataCacheAccessTimeUnits>
+	
+
+	<mainMemoryConfig>
+		<numberEntriesNBits>7</numberEntriesNBits>
+		<blockSizeNBits>12</blockSizeNBits>
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<busSize>20</busSize>
+		<accessTimeUnits>4</accessTimeUnits>
+		<numberSetsNBits>0</numberSetsNBits>
+		<pageAgingConfig>
+			<pageAgingIncrease>2</pageAgingIncrease>
+			<memRefToRun>5</memRefToRun>
+		</pageAgingConfig>
+		<memAllocConfig>
+			<minPFF>3</minPFF>
+			<maxPFF>6</maxPFF>
+			<evNodesToRun>5</evNodesToRun>
+		</memAllocConfig>		
+	</mainMemoryConfig>
+	
+	<ptCacheConfig>
+		<name>TLB1</name>
+		<numberEntriesNBits>4</numberEntriesNBits>
+		<numberEntriesInstrNBits>4</numberEntriesInstrNBits>
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<numberSetsNBits>2</numberSetsNBits>
+		<victimCache>
+			<victimCacheNumberEntriesNBits>2</victimCacheNumberEntriesNBits>
+			<victimCacheAccessTimeUnits>3</victimCacheAccessTimeUnits>
+		</victimCache>	
+		<accessTimeUnits>1</accessTimeUnits>
+	</ptCacheConfig>
+	
+	<ptCacheConfig>
+		<name>TLB2</name>
+		<numberEntriesNBits>5</numberEntriesNBits>
+		<numberEntriesInstrNBits>5</numberEntriesInstrNBits>
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<numberSetsNBits>2</numberSetsNBits>
+		<victimCache>
+			<victimCacheNumberEntriesNBits>3</victimCacheNumberEntriesNBits>
+			<victimCacheAccessTimeUnits>3</victimCacheAccessTimeUnits>
+		</victimCache>	
+		<accessTimeUnits>1</accessTimeUnits>
+	</ptCacheConfig>
+	
+	
+	<memCacheConfig>
+		<name>L1</name>
+		<numberEntriesNBits>3</numberEntriesNBits>
+		<numberEntriesInstrNBits>3</numberEntriesInstrNBits>
+		<blockSizeNBits>4</blockSizeNBits>
+		<blockSizeInstrNBits>4</blockSizeInstrNBits>	
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<numberSetsNBits>2</numberSetsNBits>
+		<victimCache>
+			<victimCacheNumberEntriesNBits>3</victimCacheNumberEntriesNBits>
+			<victimCacheAccessTimeUnits>3</victimCacheAccessTimeUnits>
+		</victimCache>	
+		<accessTimeUnits>1</accessTimeUnits>
+		<busSize>1</busSize>
+	</memCacheConfig>
+	
+	<memCacheConfig>
+		<name>L2</name>
+		<numberEntriesNBits>5</numberEntriesNBits>
+		<numberEntriesInstrNBits>5</numberEntriesInstrNBits>
+		<blockSizeNBits>5</blockSizeNBits>
+		<blockSizeInstrNBits>5</blockSizeInstrNBits>	
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<numberSetsNBits>2</numberSetsNBits>
+		<victimCache>
+			<victimCacheNumberEntriesNBits>3</victimCacheNumberEntriesNBits>
+			<victimCacheAccessTimeUnits>3</victimCacheAccessTimeUnits>
+		</victimCache>	
+		<accessTimeUnits>1</accessTimeUnits>
+		<busSize>1</busSize>
+	</memCacheConfig>
+	
+	<memCacheConfig>
+		<name>L2</name>
+		<numberEntriesNBits>6</numberEntriesNBits>
+		<numberEntriesInstrNBits>6</numberEntriesInstrNBits>
+		<blockSizeNBits>6</blockSizeNBits>
+		<blockSizeInstrNBits>6</blockSizeInstrNBits>	
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<numberSetsNBits>2</numberSetsNBits>
+		<victimCache>
+			<victimCacheNumberEntriesNBits>3</victimCacheNumberEntriesNBits>
+			<victimCacheAccessTimeUnits>3</victimCacheAccessTimeUnits>
+		</victimCache>	
+		<accessTimeUnits>1</accessTimeUnits>
+		<busSize>1</busSize>
+	</memCacheConfig>
+	
+	<cpuCacheConfig>
+		<cpuToPTCaches>
+			<cacheIndex>0</cacheIndex>
+			<cacheIndex>1</cacheIndex>
+			<exclusiveCache>
+				<cacheIndexInArray>0</cacheIndexInArray>
+				<victimBufferNumberEntriesNBits>2</victimBufferNumberEntriesNBits>
+				<victimBufferAccessTimeUnits>10</victimBufferAccessTimeUnits>
+			</exclusiveCache>	
+		</cpuToPTCaches>
+		<cpuToMemCaches>
+			<cacheIndex>0</cacheIndex>
+			<cacheIndex>1</cacheIndex>
+			<cacheIndex>2</cacheIndex>
+			<exclusiveCache>
+				<cacheIndexInArray>1</cacheIndexInArray>
+				<victimBufferNumberEntriesNBits>2</victimBufferNumberEntriesNBits>
+				<victimBufferAccessTimeUnits>10</victimBufferAccessTimeUnits>
+			</exclusiveCache>	
+			<writeBackPolicy>
+				<cacheIndexInArray>1</cacheIndexInArray>
+			</writeBackPolicy>
+			<noWriteAllocatePolicy>
+				<cacheIndexInArray>0</cacheIndexInArray>
+			</noWriteAllocatePolicy>		
+		</cpuToMemCaches>
+	</cpuCacheConfig>	
+			
+</smpNodeConfig>
+
+
+
+<smpNodeConfig>
+	<diskATU>10</diskATU>
+	<name>nodo2</name>
+	<remoteDataCacheEntriesNBits>4</remoteDataCacheEntriesNBits>
+	<remoteDataCacheEntriesInstrNBits>4</remoteDataCacheEntriesInstrNBits>
+	<remoteDataCacheAccessTimeUnits>3</remoteDataCacheAccessTimeUnits>
+	
+	
+	<mainMemoryConfig>
+		<numberEntriesNBits>7</numberEntriesNBits>
+		<blockSizeNBits>12</blockSizeNBits>
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<busSize>20</busSize>
+		<accessTimeUnits>4</accessTimeUnits>
+		<numberSetsNBits>0</numberSetsNBits>
+		<pageAgingConfig>
+			<pageAgingIncrease>2</pageAgingIncrease>
+			<memRefToRun>5</memRefToRun>
+		</pageAgingConfig>
+		<memAllocConfig>
+			<minPFF>3</minPFF>
+			<maxPFF>6</maxPFF>
+			<evNodesToRun>5</evNodesToRun>
+		</memAllocConfig>		
+	</mainMemoryConfig>
+	
+	<ptCacheConfig>
+		<name>TLB1</name>
+		<numberEntriesNBits>4</numberEntriesNBits>
+		<numberEntriesInstrNBits>4</numberEntriesInstrNBits>
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<numberSetsNBits>2</numberSetsNBits>
+		<victimCache>
+			<victimCacheNumberEntriesNBits>3</victimCacheNumberEntriesNBits>
+			<victimCacheAccessTimeUnits>3</victimCacheAccessTimeUnits>
+		</victimCache>	
+		<accessTimeUnits>1</accessTimeUnits>
+	</ptCacheConfig>
+	
+	<ptCacheConfig>
+		<name>TLB2</name>
+		<numberEntriesNBits>5</numberEntriesNBits>
+		<numberEntriesInstrNBits>5</numberEntriesInstrNBits>
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<numberSetsNBits>2</numberSetsNBits>
+		<victimCache>
+			<victimCacheNumberEntriesNBits>3</victimCacheNumberEntriesNBits>
+			<victimCacheAccessTimeUnits>3</victimCacheAccessTimeUnits>
+		</victimCache>	
+		<accessTimeUnits>1</accessTimeUnits>
+	</ptCacheConfig>
+	
+	
+	<memCacheConfig>
+		<name>L1</name>
+		<numberEntriesNBits>3</numberEntriesNBits>
+		<numberEntriesInstrNBits>3</numberEntriesInstrNBits>
+		<blockSizeNBits>4</blockSizeNBits>
+		<blockSizeInstrNBits>4</blockSizeInstrNBits>	
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<numberSetsNBits>2</numberSetsNBits>
+		<victimCache>
+			<victimCacheNumberEntriesNBits>3</victimCacheNumberEntriesNBits>
+			<victimCacheAccessTimeUnits>3</victimCacheAccessTimeUnits>
+		</victimCache>	
+		<accessTimeUnits>1</accessTimeUnits>
+		<busSize>1</busSize>
+	</memCacheConfig>
+	
+	<memCacheConfig>
+		<name>L2</name>
+		<numberEntriesNBits>5</numberEntriesNBits>
+		<numberEntriesInstrNBits>5</numberEntriesInstrNBits>
+		<blockSizeNBits>5</blockSizeNBits>
+		<blockSizeInstrNBits>5</blockSizeInstrNBits>	
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<numberSetsNBits>2</numberSetsNBits>
+		<victimCache>
+			<victimCacheNumberEntriesNBits>3</victimCacheNumberEntriesNBits>
+			<victimCacheAccessTimeUnits>3</victimCacheAccessTimeUnits>
+		</victimCache>	
+		<accessTimeUnits>1</accessTimeUnits>
+		<busSize>1</busSize>
+	</memCacheConfig>
+	
+	<memCacheConfig>
+		<name>L3</name>
+		<numberEntriesNBits>6</numberEntriesNBits>
+		<numberEntriesInstrNBits>6</numberEntriesInstrNBits>
+		<blockSizeNBits>6</blockSizeNBits>
+		<blockSizeInstrNBits>6</blockSizeInstrNBits>	
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<numberSetsNBits>2</numberSetsNBits>
+		<victimCache>
+			<victimCacheNumberEntriesNBits>3</victimCacheNumberEntriesNBits>
+			<victimCacheAccessTimeUnits>3</victimCacheAccessTimeUnits>
+		</victimCache>	
+		<accessTimeUnits>1</accessTimeUnits>
+		<busSize>1</busSize>
+	</memCacheConfig>
+	
+	<cpuCacheConfig>
+		<cpuToPTCaches>
+			<cacheIndex>0</cacheIndex>
+			<cacheIndex>1</cacheIndex>
+			<exclusiveCache>
+				<cacheIndexInArray>0</cacheIndexInArray>
+				<victimBufferNumberEntriesNBits>2</victimBufferNumberEntriesNBits>
+				<victimBufferAccessTimeUnits>10</victimBufferAccessTimeUnits>
+			</exclusiveCache>	
+		</cpuToPTCaches>
+		<cpuToMemCaches>
+			<cacheIndex>0</cacheIndex>
+			<cacheIndex>1</cacheIndex>
+			<cacheIndex>2</cacheIndex>
+			<exclusiveCache>
+				<cacheIndexInArray>1</cacheIndexInArray>
+				<victimBufferNumberEntriesNBits>2</victimBufferNumberEntriesNBits>
+				<victimBufferAccessTimeUnits>10</victimBufferAccessTimeUnits>
+			</exclusiveCache>	
+			<writeBackPolicy>
+				<cacheIndexInArray>1</cacheIndexInArray>
+			</writeBackPolicy>
+			<noWriteAllocatePolicy>
+				<cacheIndexInArray>0</cacheIndexInArray>
+			</noWriteAllocatePolicy>		
+		</cpuToMemCaches>
+	</cpuCacheConfig>	
+			
+</smpNodeConfig>
+
+
+<smpNodeConfig>
+	<diskATU>10</diskATU>
+	<name>nodo3</name>
+	<remoteDataCacheEntriesNBits>4</remoteDataCacheEntriesNBits>
+	<remoteDataCacheEntriesInstrNBits>4</remoteDataCacheEntriesInstrNBits>
+	<remoteDataCacheAccessTimeUnits>3</remoteDataCacheAccessTimeUnits>
+	
+	<mainMemoryConfig>
+		<numberEntriesNBits>7</numberEntriesNBits>
+		<blockSizeNBits>12</blockSizeNBits>
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<busSize>20</busSize>
+		<accessTimeUnits>4</accessTimeUnits>
+		<numberSetsNBits>0</numberSetsNBits>
+		<pageAgingConfig>
+			<pageAgingIncrease>2</pageAgingIncrease>
+			<memRefToRun>5</memRefToRun>
+		</pageAgingConfig>
+		<memAllocConfig>
+			<minPFF>3</minPFF>
+			<maxPFF>6</maxPFF>
+			<evNodesToRun>5</evNodesToRun>
+		</memAllocConfig>		
+	</mainMemoryConfig>
+	
+	<ptCacheConfig>
+		<name>TLB1</name>
+		<numberEntriesNBits>4</numberEntriesNBits>
+		<numberEntriesInstrNBits>4</numberEntriesInstrNBits>
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<numberSetsNBits>2</numberSetsNBits>
+		<victimCache>
+			<victimCacheNumberEntriesNBits>3</victimCacheNumberEntriesNBits>
+			<victimCacheAccessTimeUnits>3</victimCacheAccessTimeUnits>
+		</victimCache>	
+		<accessTimeUnits>1</accessTimeUnits>
+	</ptCacheConfig>
+	
+	<ptCacheConfig>
+		<name>TLB2</name>
+		<numberEntriesNBits>5</numberEntriesNBits>
+		<numberEntriesInstrNBits>5</numberEntriesInstrNBits>
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<numberSetsNBits>2</numberSetsNBits>
+		<victimCache>
+			<victimCacheNumberEntriesNBits>3</victimCacheNumberEntriesNBits>
+			<victimCacheAccessTimeUnits>3</victimCacheAccessTimeUnits>
+		</victimCache>	
+		<accessTimeUnits>1</accessTimeUnits>
+	</ptCacheConfig>
+	
+	
+	<memCacheConfig>
+		<name>L1</name>
+		<numberEntriesNBits>3</numberEntriesNBits>
+		<numberEntriesInstrNBits>3</numberEntriesInstrNBits>
+		<blockSizeNBits>4</blockSizeNBits>
+		<blockSizeInstrNBits>4</blockSizeInstrNBits>	
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<numberSetsNBits>2</numberSetsNBits>
+		<victimCache>
+			<victimCacheNumberEntriesNBits>3</victimCacheNumberEntriesNBits>
+			<victimCacheAccessTimeUnits>3</victimCacheAccessTimeUnits>
+		</victimCache>	
+		<accessTimeUnits>1</accessTimeUnits>
+		<busSize>1</busSize>
+	</memCacheConfig>
+	
+	<memCacheConfig>
+		<name>L2</name>
+		<numberEntriesNBits>5</numberEntriesNBits>
+		<numberEntriesInstrNBits>5</numberEntriesInstrNBits>
+		<blockSizeNBits>5</blockSizeNBits>
+		<blockSizeInstrNBits>5</blockSizeInstrNBits>	
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<numberSetsNBits>2</numberSetsNBits>
+		<victimCache>
+			<victimCacheNumberEntriesNBits>3</victimCacheNumberEntriesNBits>
+			<victimCacheAccessTimeUnits>3</victimCacheAccessTimeUnits>
+		</victimCache>	
+		<accessTimeUnits>1</accessTimeUnits>
+		<busSize>1</busSize>
+	</memCacheConfig>
+	
+	<memCacheConfig>
+		<name>L3</name>
+		<numberEntriesNBits>6</numberEntriesNBits>
+		<numberEntriesInstrNBits>6</numberEntriesInstrNBits>
+		<blockSizeNBits>6</blockSizeNBits>
+		<blockSizeInstrNBits>6</blockSizeInstrNBits>	
+		<evictionPolicy>RANDOM</evictionPolicy>
+		<numberSetsNBits>2</numberSetsNBits>
+		<victimCache>
+			<victimCacheNumberEntriesNBits>3</victimCacheNumberEntriesNBits>
+			<victimCacheAccessTimeUnits>3</victimCacheAccessTimeUnits>
+		</victimCache>	
+		<accessTimeUnits>1</accessTimeUnits>
+		<busSize>1</busSize>
+	</memCacheConfig>
+	
+	<cpuCacheConfig>
+		<cpuToPTCaches>
+			<cacheIndex>0</cacheIndex>
+			<cacheIndex>1</cacheIndex>
+			<exclusiveCache>
+				<cacheIndexInArray>0</cacheIndexInArray>
+				<victimBufferNumberEntriesNBits>2</victimBufferNumberEntriesNBits>
+				<victimBufferAccessTimeUnits>10</victimBufferAccessTimeUnits>
+			</exclusiveCache>	
+		</cpuToPTCaches>
+		<cpuToMemCaches>
+			<cacheIndex>0</cacheIndex>
+			<cacheIndex>1</cacheIndex>
+			<cacheIndex>2</cacheIndex>
+			<exclusiveCache>
+				<cacheIndexInArray>1</cacheIndexInArray>
+				<victimBufferNumberEntriesNBits>2</victimBufferNumberEntriesNBits>
+				<victimBufferAccessTimeUnits>10</victimBufferAccessTimeUnits>
+			</exclusiveCache>	
+			<writeBackPolicy>
+				<cacheIndexInArray>1</cacheIndexInArray>
+			</writeBackPolicy>
+			<noWriteAllocatePolicy>
+				<cacheIndexInArray>0</cacheIndexInArray>
+			</noWriteAllocatePolicy>		
+		</cpuToMemCaches>
+	</cpuCacheConfig>	
+			
+</smpNodeConfig>
+
+<memCachesCoherencePolicy>MSI</memCachesCoherencePolicy>		
+
+
+</config>	

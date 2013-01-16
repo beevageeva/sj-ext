@@ -1,0 +1,49 @@
+<project name="MyProject" default="deploy" basedir=".">
+    <description>
+        simple example build file
+    </description>
+  <!-- set global properties for this build -->
+  	<property name="dist"  location="dist"/>
+	<property name="bin" location="binServer"/>
+	<property name="srcServer" location="srcServer"/>
+	<property name="lib"  location="libServer"/>
+	<property name="web"  location="web"/>
+	<property name="libApplet"  location="libApplet"/>
+ 
+	   <path id="classpath">
+	        <fileset dir="${lib}" includes="**/*.jar"/>
+	    </path>
+
+  <target name="deploy" 
+        description="generate the distribution" >
+  	<!-- compile  -->
+    <mkdir dir="${bin}"/>
+    <javac srcdir="${srcServer}" destdir="${bin}" classpathref="classpath"/>
+  	<copy todir="${bin}">
+    <fileset dir="${srcServer}">
+      <exclude name="**/*.java"/>
+    </fileset>
+  		
+  	</copy>
+    <!-- Create the distribution directory -->
+    <mkdir dir="${dist}/WEB-INF/lib"/>
+  	<mkdir dir="${dist}/WEB-INF/classes"/>
+
+    
+  	<copy todir="${dist}/WEB-INF/classes">
+  		<fileset dir="${bin}"></fileset>
+  		<fileset file="hibernate.cfg.xml"></fileset>
+  		<fileset file="log4j.properties"></fileset>
+	</copy>	
+  	<copy todir="${dist}/WEB-INF/lib">
+  		<fileset dir="${lib}"></fileset>
+  	</copy>
+  	<copy todir="${dist}">
+  		<fileset dir="${web}"/>
+  		<fileset dir="${libApplet}"></fileset>
+  	</copy>
+  </target>
+  </project>
+
+
+

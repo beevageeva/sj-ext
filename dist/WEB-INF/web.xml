@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+
+  <servlet>
+    <servlet-name>sendFileNames</servlet-name>
+    <servlet-class>file.SendFileNames</servlet-class>
+  </servlet>
+ <servlet-mapping>
+    <servlet-name>sendFileNames</servlet-name>
+    <url-pattern>/sendFileNames.html</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>getLogging</servlet-name>
+    <servlet-class>log.GetLogging</servlet-class>
+  </servlet>
+ <servlet-mapping>
+    <servlet-name>getLogging</servlet-name>
+    <url-pattern>/getLogging.html</url-pattern>
+  </servlet-mapping>
+
+
+  
+  </web-app>

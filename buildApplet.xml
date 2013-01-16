@@ -1,0 +1,52 @@
+<project name="MyProject" default="deploy" basedir=".">
+    <description>
+        simple example build file
+    </description>
+  <!-- set global properties for this build -->
+	<property name="web"  location="web"/>
+	<property name="srcApplet"  location="srcApplet"/>
+	<property name="lib"  location="libApplet"/>
+	<property name="binApplet"  location="binApplet"/>
+	<property name="wwwPath"  location="/local/ruby/sj-server/trunk/public/sj_ext/dist/"/>
+	<property name="dist"  location="dist"/>
+	<property name="help"  location="help"/>
+
+	   <path id="classpath">
+	        <fileset dir="${lib}" includes="**/*.jar"/>
+	    </path>
+
+  <target name="deploy" 
+        description="generate the distribution" >
+
+    <!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
+  	
+  	<!-- compile  -->
+    <mkdir dir="${binApplet}"/>
+    <javac srcdir="${srcApplet}" destdir="${binApplet}" classpathref="classpath"/>
+  	<copy todir="${binApplet}">
+    <fileset dir="${srcApplet}">
+      <exclude name="**/*.java"/>
+    </fileset>
+  		
+  	</copy>
+  	<jar jarfile="${web}/notSignedSj.jar" basedir="${binApplet}" >
+        <manifest>
+            <attribute name="Main-Class" value="runtime.view.App"/>
+        </manifest>
+  	</jar>	
+  <!--
+  	<jar jarfile="${web}/helpSj.jar" basedir="${help}" />
+	-->
+  	<!-- copy todir="${wwwPath}" file="${libApplet}/jh.jar" / -->
+  	<copy todir="${wwwPath}" file="${web}/notSignedSj.jar" />
+  	<!-- copy todir="${wwwPath}" file="${web}/helpSj.jar" / -->
+
+  	<!-- copy todir="${dist}" file="${libApplet}/jh.jar" / -->
+  	<copy todir="${dist}" file="${web}/notSignedSj.jar" />
+  	<!-- copy todir="${dist}" file="${web}/helpSj.jar" / -->
+  </target>
+	
+  </project>
+
+
+

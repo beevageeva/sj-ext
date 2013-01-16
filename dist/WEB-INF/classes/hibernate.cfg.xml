@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+
+<hibernate-configuration>
+    
+    <session-factory>
+            <property name="connection.datasource">jdbc/sjDB</property>
+            
+            <!--
+            <property name="connection.url">jdbc:mysql://localhost:3306/test</property>
+             <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+             <property name="connection.username"></property>
+             <property name="connection.password"></property>
+             <property name="connection.pool_size">12</property>
+             <property name="show_sql">false</property>        
+             <property name="dialect">net.sf.hibernate.dialect.MySQLDialect</property>        
+              -->
+              <!-- Mapping files -->        
+        	<mapping resource="probl/probl.hbm.xml"/>
+     </session-factory>
+</hibernate-configuration>

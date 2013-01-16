@@ -1,0 +1,1 @@
+C:\java\jh2.0\javahelp\bin\jhindexer C:\java\PrJ\sj\help\sj.hs

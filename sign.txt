@@ -1,0 +1,2 @@
+keytool -genkey -alias signFiles -keystore compstore -keypass keypass -dname "cn=Geeva" -storepass strorepass
+jarsigner -keystore compstore -storepass strorepass -keypass keypass -signedjar /local/pear/sj_ext/web/sj.jar /local/pear/sj_ext/web/notSignedSj.jar signFiles
